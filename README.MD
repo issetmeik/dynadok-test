@@ -73,9 +73,13 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
    RABBITMQ_PASS=admin
    ```
 
-5. Com a configuração concluída, você só precisa testar a execução do comando:
+5. Com a configuração concluída, você só precisa executar esses comandos:
 
    ```bash
+   npm install
+
+   npm run build
+
    docker-compose up --build
    ```
 

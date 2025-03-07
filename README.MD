@@ -49,8 +49,8 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
 1. Clonar o repositório.
 
    ```bash
-   git clone https://github.com/seu-usuario/seu-repositorio.git
-   cd seu-repositorio
+   git clone git@github.com:issetmeik/dynadok-test.git
+   cd dynadok-test
    ```
 
 2. Abra o terminal na pasta raiz do projeto e digite "npm install" para instalar todas as dependências.
@@ -194,7 +194,6 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
 - **Node.js** (Express)
 - **MongoDB** (Banco de dados)
 - **Redis** (Cache)
-- **Mensageria** (Eventos Assíncronos)
-- **Prisma ORM** (para acesso a banco de dados)
-- **Docker** (para containerização)
-- **Jest** (para testes)
+- **RabbitMQ** (Mensageria)
+- **Docker** (Conteinerização)
+- **Jest** (Testes)

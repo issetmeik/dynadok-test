@@ -83,9 +83,13 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
    docker-compose up --build
    ```
 
-6. Divirta-se! :D
+6. Se tudo estiver OK, a api estara disponivel através dessa baseurl: **localhost:4600/api**
 
-## Endpoints
+7. Divirta-se! :D
+
+# START
+
+### Endpoints
 
 ### 1. Cadastro de Cliente
 
@@ -175,23 +179,15 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
   }
   ```
 
-# Testes
+### Testes
 
-1. **Instalar as dependências:**
+1 **Rodar os testes:**
 
-   Antes de rodar os testes, instale as dependências do projeto:
+O projeto utiliza o **Jest** para testes automatizados. Para rodá-los, use o seguinte comando:
 
-   ```bash
-   npm install
-   ```
-
-2. **Rodar os testes:**
-
-   O projeto utiliza o **Jest** para testes automatizados. Para rodá-los, use o seguinte comando:
-
-   ```bash
-   npm test
-   ```
+```bash
+npm test
+```
 
 ## Tecnologias
 

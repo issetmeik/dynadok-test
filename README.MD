@@ -31,14 +31,14 @@ A arquitetura está organizada de acordo com os princípios da Clean Architectur
 - **controllers/**: Gerenciam as requisições HTTP e comunicam-se com os serviços.
 - **services/**: Contêm a lógica de negócios, invocando repositórios e realizando operações.
 - **repositories/**: Interagem diretamente com o banco de dados (MongoDB).
-- **middlewares/**: Contêm a lógica de autenticação e validação.
+- **middlewares/**: Contêm a lógica de validação e tratamento de exceptions.
 
 ## Setup
 
 ### Pré-requisitos
 
 - [Node 18.0.0 LTS](https://nodejs.org/en/) -> Para rodar a aplicação.
-- [NPM](https://www.npmjs.com) -> Para instalar e usar os scripts package.json.
+- [NPM](https://www.npmjs.com) -> Para instalar as dependências e usar os scripts package.json.
 - [Docker](https://docs.docker.com/get-started/get-docker/) -> Docker para criar e gerenciar os contêineres.
 - [Docker Compose](https://docs.docker.com/compose/install/) -> Para orquestrar múltiplos contêineres e definir a configuração do ambiente.
 
@@ -53,9 +53,8 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
    cd dynadok-test
    ```
 
-2. Abra o terminal na pasta raiz do projeto e digite "npm install" para instalar todas as dependências.
-3. Crie um arquivo chamado ".env" na raiz do projeto.
-4. Use o seguinte código no arquivo criado:
+2. Crie um arquivo chamado ".env" na raiz do projeto.
+3. Use o seguinte código no arquivo criado:
 
    ```env
    APP_PORT=4600
@@ -73,7 +72,7 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
    RABBITMQ_PASS=admin
    ```
 
-5. Com a configuração concluída, você só precisa executar esses comandos:
+4. Com a configuração concluída, você só precisa executar esses comandos:
 
    ```bash
    npm install
@@ -83,9 +82,9 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
    docker-compose up --build
    ```
 
-6. Se tudo estiver OK, a api estara disponivel através dessa baseurl: **localhost:4600/api**
+5. Se tudo estiver OK, a api estara disponivel através dessa baseurl: **localhost:4600/api**
 
-7. Divirta-se! :D
+6. Divirta-se! :D
 
 # START
 
@@ -181,7 +180,7 @@ Feito os pré-requisitos, o próximo passo é seguir estas instruções:
 
 ### Testes
 
-1 **Rodar os testes:**
+**Rodar os testes:**
 
 O projeto utiliza o **Jest** para testes automatizados. Para rodá-los, use o seguinte comando:
 

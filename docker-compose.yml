@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: dynadok-api
+    ports:
+      - '${APP_PORT}:${APP_PORT}'
+    depends_on:
+      - mongo
+      - redis
+      - rabbitmq
+    environment:
+      - MONGO_URL=mongodb://mongo:${MONGO_PORT}/${MONGO_DB_NAME}
+      - REDIS_HOST=redis
+      - REDIS_PORT=${REDIS_PORT}
+      - RABBITMQ_URL=amqp://admin:admin@rabbitmq:${RABBITMQ_AMQP_PORT}
+    volumes:
+      - .:/usr/src/app
+    command: ./wait-for-it.sh rabbitmq:${RABBITMQ_AMQP_PORT} -- npm start
+
+  mongo:
+    image: mongo:6.0
+    container_name: my-mongo
+    ports:
+      - '${MONGO_PORT}:${MONGO_PORT}'
+    environment:
+      - MONGO_INITDB_DATABASE=${MONGO_DB_NAME}
+    volumes:
+      - mongo_data:/data/db
+
+  redis:
+    image: redis:latest
+    container_name: my-redis
+    ports:
+      - '${REDIS_PORT}:${REDIS_PORT}'
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: my-rabbitmq
+    ports:
+      - '${RABBITMQ_AMQP_PORT}:${RABBITMQ_AMQP_PORT}'
+      - '${RABBITMQ_MANAGEMENT_PORT}:${RABBITMQ_MANAGEMENT_PORT}'
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_PASS}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  mongo_data:
+  rabbitmq_data:
